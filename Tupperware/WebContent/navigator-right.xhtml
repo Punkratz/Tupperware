@@ -9,7 +9,7 @@
 <h:body>
 	<h:form>
 		<h:outputLabel value="Name" />
-		<h:outputLabel value="#{user.name}" rendered="#{user.loggedIn}" />
+		<h:outputLabel value="#{user.name}" />
 		<h:inputText value="#{user.name}" rendered="#{!user.loggedIn}"
 			styleClass="test" />
 		<h:outputLabel value="Passwort" rendered="#{!user.loggedIn}" />
@@ -17,8 +17,7 @@
 			styleClass="test" />
 		<h:commandButton value="Einloggen" action="#{authorizator.login}"
 			rendered="#{!user.loggedIn}" />
-		<h:commandButton value="Logout" action="#{user.logOut}"
-			rendered="#{user.loggedIn}" />
+		<h:commandButton value="Logout" action="#{user.logOut}" />
 	</h:form>
 </h:body>
 </html>

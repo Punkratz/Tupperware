@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<ui:composition template="#{navigator.masterTempalte}">
+		<ui:define name="subHeadline">
+			<h:outputText value="Kunde - Bearbeiten: " />
+			<h:outputText value="#{productPresentationController.bean.firstName}" />
+		</ui:define>
+		<ui:define name="content">
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputText value="Name" styleClass="componentTitle" />
+					<h:outputText value="Preis" styleClass="componentTitle" />
+					<h:inputText id="firstName" styleClass="inputField"
+						value="#{productPresentationController.bean.name}" />
+					<h:inputText id="lastName" styleClass="inputField"
+						value="#{productPresentationController.bean.price}" />
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h:commandLink value="Speichern"
+						action="#{productPresentationController.saveChanges}" />
+					<h:commandLink value="Zurück"
+						action="#{productPresentationController.resetChanges}"
+						immediate="true" />
+				</h:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
