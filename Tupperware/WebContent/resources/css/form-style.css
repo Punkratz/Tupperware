@@ -1,0 +1,10 @@
+.componentTitle {
+	border-bottom: 1px solid #CB197D;
+	border-right: 1px solid #CB197D;
+	padding-right: 3px;
+}
+
+.inputField:FOCUS {
+	background-color: #E466B0;
+	color: white;
+}

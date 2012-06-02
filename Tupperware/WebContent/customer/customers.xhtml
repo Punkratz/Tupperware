@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<ui:composition template="#{navigator.masterTempalte}">
+		<ui:define name="subHeadline">
+			Kunden
+		</ui:define>
+		<ui:define name="content-header">
+			<h:link value="Kunde hinzufügen"
+				outcome="#{customerPresentationController.addBean()}"
+				rendered="#{user.loggedIn}" />
+		</ui:define>
+		<ui:define name="content">
+			<h:form>
+				<h:dataTable id="customerTable" value="#{user.model.customers}"
+					var="customer" styleClass="table" headerClass="header"
+					rowClasses="firstColumn secondColumn" footerClass="footer">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Letzter Kontakt" />
+						</f:facet>
+						<h:outputText value="#{customer.lastContact}">
+							<f:convertDateTime pattern="dd.MM.yyyy" timeZone="EST"
+								type="date" />
+						</h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Vorname" />
+						</f:facet>
+						<h:outputText value="#{customer.firstName}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Nachname" />
+						</f:facet>
+						<h:outputText value="#{customer.lastName}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="E-Mail" />
+						</f:facet>
+						<h:outputText value="#{customer.mail}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Telefon Nr." />
+						</f:facet>
+						<h:outputText value="#{customer.phoneNumber}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Straße" />
+						</f:facet>
+						<h:outputText value="#{customer.street}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Stadt" />
+						</f:facet>
+						<h:outputText value="#{customer.city}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Plz" />
+						</f:facet>
+						<h:outputText value="#{customer.zipCode}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Geburtstag" />
+						</f:facet>
+						<h:outputText value="#{customer.birthDate}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="#" />
+						</f:facet>
+						<h:commandLink value="Bearbeiten" immediate="true"
+							action="#{customerPresentationController.editBean(customer)}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="#" />
+						</f:facet>
+						<h:commandLink value="Löschen" immediate="true"
+							action="#{customerPresentationController.deleteBean(customer)}" />
+					</h:column>
+					<f:facet name="footer">
+						<h:outputText value="End of list" />
+					</f:facet>
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

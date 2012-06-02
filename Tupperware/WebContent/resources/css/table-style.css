@@ -1,0 +1,40 @@
+.table {
+	border-collapse: collapse;
+	border: 1px solid #CB197D;
+	overflow: auto;
+	width: 100%;
+}
+
+.header {
+	background: #E466B0;
+	color: white;
+	border: 1px solid #CB197D;
+	padding: 0px;
+	border-collapse: collapse;
+}
+
+.firstColumn {
+	text-align: center;
+	border: 1px solid #CB197D;
+}
+
+.firstColumn:HOVER {
+	color: white;
+	background-color: #E466B0;
+}
+
+.secondColumn {
+	text-align: center;
+	border: 1px solid #CB197D;
+}
+
+.secondColumn:HOVER {
+	color: white;
+	background-color: #E466B0;
+}
+
+.footer {
+	text-align: center;
+	background: #E466B0;
+	color: white;
+}

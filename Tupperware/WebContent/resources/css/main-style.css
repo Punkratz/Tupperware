@@ -1,0 +1,29 @@
+#main {
+	border: 1px solid #CB197D;
+}
+
+#header-panel {
+	text-align: center;
+	border-bottom: 1px solid #CB197D;
+}
+
+#navigator-panel {
+	border-bottom: 1px solid #CB197D;
+}
+
+#center-panel {
+	
+}
+
+#menu-panel {
+	border-right: 1px solid #CB197D;
+}
+
+#content-header {
+	padding: 5px;
+	border-bottom: 1px solid #CB197D;
+}
+
+#content-panel {
+	overflow: auto;
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<ui:composition template="#{navigator.masterTempalte}">
+		<ui:define name="subHeadline">
+			Kunden
+		</ui:define>
+		<ui:define name="content-header">
+			<h:link value="Produkt hinzufügen"
+				outcome="#{productPresentationController.addBean()}"
+				rendered="#{user.loggedIn}" />
+		</ui:define>
+		<ui:define name="content">
+			<h:form>
+				<h:dataTable id="productTable" value="#{user.model.products}"
+					var="product" styleClass="table" headerClass="header"
+					rowClasses="firstColumn secondColumn" footerClass="footer">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Name" />
+						</f:facet>
+						<h:outputText value="#{product.name}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Preis" />
+						</f:facet>
+						<h:outputText value="#{product.price}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="#" />
+						</f:facet>
+						<h:commandLink value="Bearbeiten" immediate="true"
+							action="#{productPresentationController.editBean(product)}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="#" />
+						</f:facet>
+						<h:commandLink value="Löschen" immediate="true"
+							action="#{productPresentationController.deleteBean(product)}" />
+					</h:column>
+					<f:facet name="footer">
+						<h:outputText value="End of list" />
+					</f:facet>
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

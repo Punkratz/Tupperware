@@ -1,0 +1,27 @@
+h1 {
+	font-family: Arial, "Arial CE", "Lucida Grande CE", lucida,
+		"Helvetica CE", sans-serif;
+	color: #CB197D;
+}
+
+h2 {
+	font-family: Arial, "Arial CE", "Lucida Grande CE", lucida,
+		"Helvetica CE", sans-serif;
+	color: #CB197D;
+}
+
+h3 {
+	font-family: Arial, "Arial CE", "Lucida Grande CE", lucida,
+		"Helvetica CE", sans-serif;
+	color: #CB197D;
+}
+
+a:link,a:visited {
+	color: #CB197D;
+	text-decoration: none;
+}
+
+a:link:hover,a:visited:hover {
+	color: #CB197D;
+	text-decoration: underline;
+}

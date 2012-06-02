@@ -1,0 +1,31 @@
+#main {
+	position: absolute;
+	margin-top: 2%;
+	margin-left: 10%;
+	width: 80%;
+	height: 90%;
+}
+
+#header-panel {
+	text-align: center;
+	min-height: 15%;
+}
+
+#navigator-panel {
+	min-height: 5%;
+}
+
+#center-panel {
+	height: 85%;
+}
+
+#menu-panel {
+	float: left;
+	min-height: 100%;
+	min-width: 10%;
+}
+
+#content-panel {
+	min-height: 100%;
+	min-width: 100%;
+}

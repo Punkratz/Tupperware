@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+org.jboss.tools.openshift.ApplicationId=db7f6466f7074fd2b99391d2ad4bb6c7
+org.jboss.tools.openshift.ApplicationName=tupperware
+org.jboss.tools.openshift.DeployFolder=deployments
+org.jboss.tools.openshift.Domain=maini
+org.jboss.tools.openshift.RemoteName=origin
+org.jboss.tools.openshift.Username=punkratz1@web.de

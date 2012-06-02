@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+</h:head>
+<h:body>
+	<h:panelGrid columns="1" cellpadding="2">
+		<h:link value="Willkommen" outcome="welcome"
+			rendered="#{!user.loggedIn}" />
+		<h:link value="Bestellungen" outcome="#{navigator.navigations.orders}" />
+		<h:link value="Produkte" outcome="#{navigator.navigations.products}" />
+		<h:link value="Kunden" outcome="#{navigator.navigations.customers}" />
+	</h:panelGrid>
+</h:body>
+</html>
+

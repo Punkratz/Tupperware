@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<ui:composition template="#{navigator.masterTempalte}">
+		<ui:define name="subHeadline">
+			<h:outputText value="Kunde - Bearbeiten: " />
+			<h:outputText
+				value="#{customerPresentationController.bean.firstName}" />
+		</ui:define>
+		<ui:define name="content">
+			<h:form>
+				<h:panelGrid columns="4">
+					<h:outputText value="Letzter Kontakt" styleClass="componentTitle" />
+					<h:outputText value="Vorname" styleClass="componentTitle" />
+					<h:outputText value="Nachname" styleClass="componentTitle" />
+					<h:outputText value="E-Mail" styleClass="componentTitle" />
+					<h:inputText id="lastContact" styleClass="inputField"
+						value="#{customerPresentationController.bean.lastContact}">
+						<f:convertDateTime pattern="dd.MM.yyyy" timeZone="EST" type="date" />
+					</h:inputText>
+					<h:inputText id="firstName" styleClass="inputField"
+						value="#{customerPresentationController.bean.firstName}" />
+					<h:inputText id="lastName" styleClass="inputField"
+						value="#{customerPresentationController.bean.lastName}" />
+					<h:inputText id="mail" styleClass="inputField"
+						value="#{customerPresentationController.bean.mail}" size="25"
+						maxlength="35" />
+					<h:outputText value="Telefon Nr." styleClass="componentTitle" />
+					<h:outputText value="Straße" styleClass="componentTitle" />
+					<h:outputText value="Stadt" styleClass="componentTitle" />
+					<h:outputText value="Plz" styleClass="componentTitle" />
+					<h:inputText id="phoneNumber" styleClass="inputField"
+						value="#{customerPresentationController.bean.phoneNumber}" />
+					<h:inputText id="street" styleClass="inputField"
+						value="#{customerPresentationController.bean.street}" />
+					<h:inputText id="city" styleClass="inputField"
+						value="#{customerPresentationController.bean.city}" />
+					<h:inputText id="zipCode" styleClass="inputField"
+						value="#{customerPresentationController.bean.zipCode}"
+						requiredMessage="Bitte Plz eingeben.">
+					</h:inputText>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h:commandLink value="Speichern"
+						action="#{customerPresentationController.saveChanges}" />
+					<h:commandLink value="Zurück"
+						action="#{customerPresentationController.resetChanges}"
+						immediate="true" />
+				</h:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

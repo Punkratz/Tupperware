@@ -1,0 +1,27 @@
+#main {
+	width: 1250px;
+	height: 800px;
+	margin: auto;
+}
+
+#header-panel {
+	height: 100px;
+}
+
+#navigator-panel {
+	height: 25px;
+}
+
+#center-panel {
+	height: 670px;
+}
+
+#menu-panel {
+	float: left;
+	width: 10%;
+	height: 675px;
+}
+
+#content-panel {
+	height: 675px;
+}
