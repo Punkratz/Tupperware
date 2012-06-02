@@ -38,13 +38,15 @@
 						<f:facet name="header">
 							<h:outputText value="Umsatz" />
 						</f:facet>
-						<h:outputText value="#{order.creationDate}" />
+						<h:outputText
+							value="#{orderInformationService.getSalesVolume(order)}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">
 							<h:outputText value="Produkte" />
 						</f:facet>
-						<h:outputText value="#{order.orderUnits}" />
+						<h:outputText
+							value="#{orderInformationService.getOrdersUnitsListAsString(order)}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">

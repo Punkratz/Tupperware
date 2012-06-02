@@ -18,10 +18,12 @@ h3 {
 
 a:link,a:visited {
 	color: #CB197D;
+	background-color: white;
 	text-decoration: none;
 }
 
 a:link:hover,a:visited:hover {
-	color: #CB197D;
 	text-decoration: underline;
+	color: white;
+	background-color: #CB197D;
 }

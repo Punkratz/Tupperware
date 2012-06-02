@@ -6,35 +6,34 @@
 }
 
 .header {
-	background: #E466B0;
+	background: #CB197D;
 	color: white;
-	border: 1px solid #CB197D;
+	border-right: 1px solid white;
 	padding: 0px;
 	border-collapse: collapse;
 }
 
 .firstColumn {
 	text-align: center;
-	border: 1px solid #CB197D;
+	color: #CB197D;
 }
 
 .firstColumn:HOVER {
 	color: white;
-	background-color: #E466B0;
+	background-color: #CB197D;
 }
 
 .secondColumn {
 	text-align: center;
-	border: 1px solid #CB197D;
 }
 
 .secondColumn:HOVER {
 	color: white;
-	background-color: #E466B0;
+	background-color: #CB197D;
 }
 
 .footer {
 	text-align: center;
-	background: #E466B0;
+	background: #CB197D;
 	color: white;
 }
