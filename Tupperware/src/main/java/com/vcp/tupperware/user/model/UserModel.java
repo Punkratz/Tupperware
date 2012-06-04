@@ -58,4 +58,9 @@ public class UserModel implements Serializable
 	{
 		return products;
 	}
+
+	public List<SelectItem> getCustomerItems()
+	{
+		return customerItems;
+	}
 }

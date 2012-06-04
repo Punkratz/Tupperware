@@ -5,8 +5,6 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-<h:head>
-</h:head>
 <h:body>
 	<ui:composition template="#{navigator.masterTempalte}">
 		<ui:define name="subHeadline">
@@ -16,14 +14,16 @@
 			<h:form>
 				<h:panelGrid columns="2">
 					<h:outputText value="Name" styleClass="componentTitle" />
-					<h:inputText id="firstName" styleClass="inputField"
-						value="#{productPresentationController.bean.name}" />
+					<h:selectOneMenu id="orderer" styleClass="selectMenu"
+						value="#{orderPresentationController.orderer}">
+						<f:selectItems value="#{modelProvider.model.customerItems}" />
+					</h:selectOneMenu>
 				</h:panelGrid>
 				<h:panelGrid columns="2">
 					<h:commandLink value="Speichern"
-						action="#{productPresentationController.saveChanges}" />
+						action="#{orderPresentationController.saveBean}" />
 					<h:commandLink value="Zurück"
-						action="#{productPresentationController.resetChanges}"
+						action="#{orderPresentationController.resetChanges}"
 						immediate="true" />
 				</h:panelGrid>
 			</h:form>

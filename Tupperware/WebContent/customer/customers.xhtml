@@ -16,8 +16,9 @@
 		</ui:define>
 		<ui:define name="content">
 			<h:form>
-				<h:dataTable id="customerTable" value="#{user.model.customers}"
-					var="customer" styleClass="table" headerClass="header"
+				<h:dataTable id="customerTable"
+					value="#{modelProvider.model.customers}" var="customer"
+					styleClass="table" headerClass="header"
 					rowClasses="firstColumn secondColumn" footerClass="footer">
 					<h:column>
 						<f:facet name="header">

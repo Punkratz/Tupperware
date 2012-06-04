@@ -45,12 +45,14 @@ public class PresentationController<E> extends PresentationModel implements Seri
 		return "edit" + IDENTIFIER;
 	}
 
+	public String saveBean()
+	{
+		dataList.add(bean);
+		return retunToMain();
+	}
+
 	public String saveChanges()
 	{
-		if (!dataList.contains(bean))
-		{
-			dataList.add(bean);
-		}
 		return retunToMain();
 	}
 

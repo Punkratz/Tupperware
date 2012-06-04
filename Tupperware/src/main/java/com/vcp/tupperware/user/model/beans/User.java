@@ -3,6 +3,7 @@ package com.vcp.tupperware.user.model.beans;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import com.vcp.tupperware.provider.model.ModelProvider;
 import com.vcp.tupperware.user.model.UserModel;
 
 
@@ -12,8 +13,8 @@ public class User implements Serializable
 {
 	private String name;
 	private String password;
-	private UserModel model = new UserModel();
-	private boolean loggedIn = true;
+	private UserModel model = new ModelProvider().getModel();
+	private boolean loggedIn;
 
 	public String getName()
 	{
