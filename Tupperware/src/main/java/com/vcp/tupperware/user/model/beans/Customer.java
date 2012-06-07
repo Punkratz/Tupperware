@@ -2,10 +2,26 @@ package com.vcp.tupperware.user.model.beans;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
+/**
+ * Entity implementation class for Entity: Customer
+ * 
+ */
+@Entity
 public class Customer implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@Temporal(TemporalType.DATE)
 	private Date lastContact;
 	private String firstName;
 	private String lastName;
@@ -14,10 +30,12 @@ public class Customer implements Serializable
 	private String street;
 	private String city;
 	private String zipCode;
+	@Temporal(TemporalType.DATE)
 	private Date birthDate;
 
 	public Customer()
 	{
+		super();
 	}
 
 	public Customer(Date lastContact, String firstName, String lastName)
@@ -33,6 +51,11 @@ public class Customer implements Serializable
 	public String toString()
 	{
 		return firstName + ", " + lastName;
+	}
+
+	public long getId()
+	{
+		return id;
 	}
 
 	public Date getLastContact()

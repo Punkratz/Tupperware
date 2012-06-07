@@ -1,10 +1,25 @@
 package com.vcp.tupperware.user.model.beans;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
+/**
+ * Entity implementation class for Entity: OrderUnitt
+ * 
+ */
+@Entity
 public class OrderUnit implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@OneToOne
 	private Product product;
 	private int quantity;
 
@@ -13,46 +28,9 @@ public class OrderUnit implements Serializable
 		super();
 	}
 
-	public OrderUnit(Product product, int quantity)
+	public long getId()
 	{
-		super();
-		setProduct(product);
-		setQuantity(quantity);
-	}
-
-	public String getName()
-	{
-		return product.getName();
-	}
-
-	public void setName(String name)
-	{
-		product.setName(name);
-	}
-
-	public int getQuantity()
-	{
-		return quantity;
-	}
-
-	public void setQuantity(int quantity)
-	{
-		this.quantity = quantity;
-	}
-
-	public double getPrice()
-	{
-		return product.getPrice();
-	}
-
-	public double getSalesVolume()
-	{
-		return product.getPrice() * quantity;
-	}
-
-	public void setPrice(double price)
-	{
-		product.setPrice(price);
+		return id;
 	}
 
 	public Product getProduct()
@@ -65,9 +43,13 @@ public class OrderUnit implements Serializable
 		this.product = product;
 	}
 
-	@Override
-	public String toString()
+	public int getQuantity()
 	{
-		return product + ", " + quantity + "Stk.";
+		return quantity;
+	}
+
+	public void setQuantity(int quantity)
+	{
+		this.quantity = quantity;
 	}
 }

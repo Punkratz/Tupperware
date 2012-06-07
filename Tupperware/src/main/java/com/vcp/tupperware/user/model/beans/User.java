@@ -1,20 +1,35 @@
 package com.vcp.tupperware.user.model.beans;
 
 import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import com.vcp.tupperware.provider.model.ModelProvider;
 import com.vcp.tupperware.user.model.UserModel;
 
 
-@ManagedBean
-@SessionScoped
+/**
+ * Entity implementation class for Entity: Userr
+ * 
+ */
+@Entity
 public class User implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 	private String name;
-	private String password;
+	@OneToOne
 	private UserModel model = new ModelProvider().getModel();
 	private boolean loggedIn;
+
+	public User()
+	{
+		super();
+	}
 
 	public String getName()
 	{
@@ -24,16 +39,6 @@ public class User implements Serializable
 	public void setName(String name)
 	{
 		this.name = name;
-	}
-
-	public String getPassword()
-	{
-		return password;
-	}
-
-	public void setPassword(String password)
-	{
-		this.password = password;
 	}
 
 	public UserModel getModel()
@@ -46,24 +51,18 @@ public class User implements Serializable
 		this.model = model;
 	}
 
-	public void setLoggedIn(boolean loggedIn)
-	{
-		this.loggedIn = loggedIn;
-	}
-
 	public boolean isLoggedIn()
 	{
 		return loggedIn;
 	}
 
-	public void logOut()
+	public void setLoggedIn(boolean loggedIn)
 	{
-		setLoggedIn(false);
+		this.loggedIn = loggedIn;
 	}
 
-	@Override
-	public String toString()
+	public long getId()
 	{
-		return name;
+		return id;
 	}
 }

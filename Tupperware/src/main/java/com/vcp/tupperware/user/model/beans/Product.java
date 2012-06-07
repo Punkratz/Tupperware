@@ -1,32 +1,34 @@
 package com.vcp.tupperware.user.model.beans;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 
+/**
+ * Entity implementation class for Entity: Productt
+ * 
+ */
+@Entity
 public class Product implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 	private String name;
 	private double price;
 
 	public Product()
 	{
-	}
-
-	public Product(String name, double price)
-	{
 		super();
-		this.name = name;
-		this.price = price;
 	}
 
-	public String getName()
+	public long getId()
 	{
-		return name;
-	}
-
-	public void setName(String name)
-	{
-		this.name = name;
+		return id;
 	}
 
 	public double getPrice()
@@ -39,15 +41,13 @@ public class Product implements Serializable
 		this.price = price;
 	}
 
-	@Override
-	public String toString()
+	public String getName()
 	{
 		return name;
 	}
 
-	@Override
-	public boolean equals(Object obj)
+	public void setName(String name)
 	{
-		return toString().equals(obj.toString());
+		this.name = name;
 	}
 }

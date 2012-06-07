@@ -1,6 +1,6 @@
 package com.vcp.tupperware.services.info;
 
-import java.util.List;
+import java.util.Set;
 import javax.ejb.Stateless;
 import javax.faces.bean.ManagedBean;
 import com.vcp.tupperware.user.model.beans.Order;
@@ -17,13 +17,18 @@ public class OrderInformationService
 	public String getOrdersUnitsListAsString(Order order)
 	{
 		StringBuilder result = new StringBuilder();
-		List<OrderUnit> orderUnits = order.getOrderUnits();
-		OrderUnit orderUnit = null;
-		for (int i = 0; i < orderUnits.size() && i <= MAX_ITEM_LENGHT; i++)
+		Set<OrderUnit> orderUnits = order.getOrderUnits();
+		int i = 0;
+		for (OrderUnit orderUnit : orderUnits)
 		{
-			orderUnit = orderUnits.get(i);
-			result.append(orderUnit.getProduct().getName());
-			result.append(SEPERATOR);
+			if (i++ < MAX_ITEM_LENGHT)
+			{
+				result.append(orderUnit.toString() + SEPERATOR);
+			}
+			else
+			{
+				break;
+			}
 		}
 		return result.toString().substring(0, result.toString().length() - SEPERATOR.length());
 	}
@@ -39,7 +44,7 @@ public class OrderInformationService
 		return sumSalesVolume(order.getOrderUnits());
 	}
 
-	private double sumSalesVolume(List<OrderUnit> orderUnits)
+	private double sumSalesVolume(Iterable<OrderUnit> orderUnits)
 	{
 		double result = 0;
 		for (OrderUnit orderUnit : orderUnits)
@@ -51,6 +56,6 @@ public class OrderInformationService
 
 	private double sumOrderUnitVolume(OrderUnit orderUnit)
 	{
-		return orderUnit.getPrice() * orderUnit.getQuantity();
+		return orderUnit.getProduct().getPrice() * orderUnit.getQuantity();
 	}
 }

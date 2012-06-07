@@ -1,66 +1,57 @@
 package com.vcp.tupperware.user.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import javax.faces.model.SelectItem;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import com.vcp.tupperware.user.model.beans.Customer;
 import com.vcp.tupperware.user.model.beans.Order;
-import com.vcp.tupperware.user.model.beans.OrderUnit;
 import com.vcp.tupperware.user.model.beans.Product;
 
 
+/**
+ * Entity implementation class for Entity: UserModell
+ * 
+ */
+@Entity
 public class UserModel implements Serializable
 {
-	private final List<Customer> customers = new ArrayList<Customer>();
-	private final List<Product> products = new ArrayList<Product>();
-	private final List<SelectItem> customerItems = new ArrayList<SelectItem>();
-	private final List<Order> orders = new ArrayList<Order>();
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	private final Set<Customer> customers = new HashSet<Customer>();
+	@OneToMany
+	private final Set<Product> products = new HashSet<Product>();
+	@OneToMany
+	private final Set<Order> orders = new HashSet<Order>();
 
 	public UserModel()
 	{
-		customers.add(new Customer(new Date(), "Elke", "Potucek"));
-		customers.add(new Customer(new Date(), "Larissa", "Potucek"));
-		customers.add(new Customer(new Date(), "Vincent", "Potucek"));
-		customers.add(new Customer(new Date(), "Ute", "Prohaska"));
-		customers.add(new Customer(new Date(), "Gisela", "Schmitt"));
-		products.add(new Product("Product1", 5));
-		products.add(new Product("Product2", 15));
-		Customer customer = customers.get(0);
-		List<OrderUnit> productWrappers = new ArrayList<OrderUnit>();
-		productWrappers.add(new OrderUnit(new Product("Product1", 25), 5));
-		getOrders().add(new Order(customer, new Date(), productWrappers));
-		productWrappers.add(new OrderUnit(new Product("Product2", 10), 2));
-		getOrders().add(new Order(customer, new Date(), productWrappers));
-		for (Customer customer2 : customers)
-		{
-			customerItems.add(new SelectItem(customer2, customer2.toString()));
-		}
+		super();
 	}
 
-	public List<SelectItem> getSelectItem()
+	public long getId()
 	{
-		return customerItems;
+		return id;
 	}
 
-	public List<Order> getOrders()
-	{
-		return orders;
-	}
-
-	public List<Customer> getCustomers()
+	public Set<Customer> getCustomers()
 	{
 		return customers;
 	}
 
-	public List<Product> getProducts()
+	public Set<Order> getOrders()
 	{
-		return products;
+		return orders;
 	}
 
-	public List<SelectItem> getCustomerItems()
+	public Set<Product> getProducts()
 	{
-		return customerItems;
+		return products;
 	}
 }
